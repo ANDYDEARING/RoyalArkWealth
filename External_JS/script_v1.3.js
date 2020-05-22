@@ -1,6 +1,7 @@
 //create the quiz element
 var div = document.createElement("div");
 div.setAttribute("id","quiz-area");
+div.style.marginLeft = "75px";
 var contentArea = document.getElementsByClassName("content-wrapper")[0];
 contentArea.appendChild(div);
 
