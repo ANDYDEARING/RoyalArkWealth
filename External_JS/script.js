@@ -1,8 +1,13 @@
+//create the quiz element
+var div = document.createElement("div");
+div.setAttribute("id","quiz-area");
+document.body.appendChild(div);
+
 //Heading
 var headerTag = document.createElement("h1");
 var headerText = document.createTextNode("Quiz");
 headerTag.appendChild(headerText);
-var quizArea = document.getElementsByTagName('quiz-area')[0];
+var quizArea = document.getElementById('quiz-area');
 quizArea.appendChild(headerTag);
 var answerList = [];
 var FINAL_QUESTION = 3;
