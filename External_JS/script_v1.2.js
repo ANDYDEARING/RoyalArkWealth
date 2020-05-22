@@ -1,7 +1,8 @@
 //create the quiz element
 var div = document.createElement("div");
 div.setAttribute("id","quiz-area");
-document.body.appendChild(div);
+var contentArea = document.getElementsByClassName("content-wrapper")[0];
+contentArea.appendChild(div);
 
 //Heading
 var headerTag = document.createElement("h1");
