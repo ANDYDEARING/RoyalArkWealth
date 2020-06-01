@@ -1,9 +1,0 @@
-#quiz-area button{
-    border: 2;
-    -webkit-appearance: button;
-}
-
-#a, #b, #c, #d{
-    -webkit-appearance: radio;
-    margin-right: 10px;
-}
