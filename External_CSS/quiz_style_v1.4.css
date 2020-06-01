@@ -7,3 +7,12 @@
     -webkit-appearance: radio;
     margin-right: 10px;
 }
+
+#quiz-area input[type=radio]{
+    float: left;
+}
+
+#quiz-area label{
+    margin-left: 30px;
+    display: block;
+}
