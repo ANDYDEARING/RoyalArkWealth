@@ -33,7 +33,7 @@ var questionList = [
 
     "<p><strong>Q4. How many hours per year do you spend managing your investments and other financial planning decisions? Or rather, how much time do you think you should be spending if you had the time or desire to do so?</strong></p>"+
     "<p><em>Please select one of the following:</em></p>"+
-    '<input type="radio" name="answer" id="a" value="52">'+
+    '<input style="-webkit-appearance:radio;" type="radio" name="answer" id="a" value="52">'+
     '<label for="a">Extensive time (1+ hour/week = 52 hours/year)</label><br>'+
     '<input type="radio" name="answer" id="b" value="24">'+
     '<label for="b">Quite a bit of time (2 hours/month = 24 hours/year)</label><br>'+
