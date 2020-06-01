@@ -1,6 +1,6 @@
 #quiz-area button{
     -webkit-appearance: button;
-    border:1px darkgray;
+    border:1px solid darkgray;
 }
 
 #a, #b, #c, #d{
