@@ -4,12 +4,7 @@ div.setAttribute("id","quiz-area");
 var contentArea = document.getElementsByClassName("content-wrapper")[0];
 contentArea.appendChild(div);
 
-//Heading
-// var headerTag = document.createElement("h1");
-// var headerText = document.createTextNode("Quiz");
-// headerTag.appendChild(headerText);
 var quizArea = document.getElementById('quiz-area');
-// quizArea.appendChild(headerTag);
 var answerList = [];
 var FINAL_QUESTION = 10;
 
@@ -106,28 +101,39 @@ var question = document.createElement("div");
 question.innerHTML = questionList[questionIndex];
 quizArea.appendChild(question);
 
+var messageArea = document.createElement("div");
+quizArea.appendChild(messageArea);
+
 function next(){
-    answerList.push(document.getElementById("answer").value);
-    incrementQuestion();
+    if(verifyInput(document.getElementById("answer").value)){
+        answerList.push(document.getElementById("answer").value);
+        incrementQuestion();
+    } else {
+        displayMessage("Please enter a valid number");
+    }
 }
 
 function radioNext(){
     let radios = document.getElementsByName("answer");
-    let checkedIndex;
+    let checkedIndex = -1;
     for(let i=0;i<radios.length;i++){
         if(radios[i].checked){
             checkedIndex = i;
             break;
         }
     }
-    answerList.push(radios[checkedIndex].value);
-    incrementQuestion();
+    if(checkedIndex>=0){
+        answerList.push(radios[checkedIndex].value);
+        incrementQuestion();
+    } else {
+        displayMessage("Please make a selection");
+    }
 }
 
 function incrementQuestion(){
-    console.log(answerList);
     questionIndex++;
     if(questionIndex < FINAL_QUESTION){
+        displayMessage("");
         question.innerHTML = questionList[questionIndex];
     } else {
         endState();
@@ -140,13 +146,13 @@ function endState(){
     let financialPlanning = parseFloat(answerList[2])*parseFloat(answerList[9]);;
     let fee = getFee();
     question.innerHTML = 
-            "<p>Value of Our Advice</p>"+
-            "<p>Portfolio Management (sum of questions 5-9) $" + portfolioManagement + "</p>"+
-            "<p>Time Saved (answer to question 4) $" + timeSaved + "</p>"+
-            "<p>Financial Planning (answer to question 10) $" + financialPlanning + "</p>"+
-            "<p>Annual Value of Service (sum of three above) $" + (portfolioManagement+timeSaved+financialPlanning) + "</p>"+
-            "<p>Projected ARWM Fee (value in Q2 x ARWM investment fee calculator) $" + fee + "</p>"+
-            "<p>Net Benefit Per Year $" + (portfolioManagement+timeSaved+financialPlanning-fee) +"</p>";
+            "<h3>Value of Our Advice</h3>"+
+            "<p>Portfolio Management (sum of questions 5-9) $" + dollarPipe(portfolioManagement) + "</p>"+
+            "<p>Time Saved (answer to question 4) $" + dollarPipe(timeSaved) + "</p>"+
+            "<p>Financial Planning (answer to question 10) $" + dollarPipe(financialPlanning) + "</p>"+
+            "<p>Annual Value of Service (sum of three above) $" + dollarPipe(portfolioManagement+timeSaved+financialPlanning) + "</p>"+
+            "<p>Projected ARWM Fee (value in Q2 x ARWM investment fee calculator) $" + dollarPipe(fee) + "</p>"+
+            "<p><u><strong>Net Benefit Per Year $" + dollarPipe(portfolioManagement+timeSaved+financialPlanning-fee) +"</u></strong></p>";
 }
 
 function getPortfolioManagement(){
@@ -168,4 +174,37 @@ function getFee(){
     } else {
         return portfolioValue*0.01;
     }
+}
+
+function dollarPipe(num){
+    let roundedPennies = Math.round(num*100);
+    let rndStr = roundedPennies.toString();
+    if(rndStr.length==1){
+        rndStr = "0"+rndStr;
+    }
+    rndStr = rndStr.slice(0,rndStr.length-2)+"."+rndStr.slice(rndStr.length-2);
+    if(rndStr[0]=="."){
+        rndStr = "0"+rndStr;
+    } else {
+        let index = rndStr.length-3;
+        let count = 0;
+        while(index>0){
+            if(count==3){
+                count=0;
+                rndStr = rndStr.slice(0,index)+","+rndStr.slice(index);
+            }
+            count++;
+            index--;
+        }
+    }
+    return rndStr;
+}
+
+function verifyInput(str){
+    result = parseFloat(str);
+    return !Number.isNaN(result);
+}
+
+function displayMessage(str){
+    messageArea.innerHTML = '<p style="color:red;">'+str+'</p>';
 }
