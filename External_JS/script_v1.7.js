@@ -12,17 +12,17 @@ var questionIndex = 0;
 var questionList = [
 
     "<p><strong>Q1. What is your time worth?</strong></p>"+
-    '<div><span>$ </span><input id="answer" type="number"></input><span> / Hour</span></div>'+
+    '<div class="num-input"><span>$ </span><input id="answer" type="number"></input><span> / Hour</span></div>'+
     '<div><br><button onClick="next()">Next</button></div>',
 
     "<p><strong>Q2. What is the total size of your investment portfolio?</strong></p>"+
     '<p><strong>Include:</strong> brokerage accounts, IRAs, 401(k)s, 529s, and any other accounts in which you control how the balance is invested. Also include any excess cash currently in checking/savings that you know should be invested.</p>' +
     '<p><strong>Exclude:</strong> bank accounts (checking/savings, aside from excess cash mentioned above), company stock, and any other investments over which you do not have discretionary control to make changes (private equity funds, start-up seed investments, whole life insurance policies, etc.).</p>' +
-    '<div><span>$ </span><input id="answer" type="number"></input></div>'+
+    '<div class="num-input"><span>$ </span><input id="answer" type="number"></input></div>'+
     '<div><br><button onClick="next()">Next</button></div>',
 
     "<p><strong>Q3. What is your approximate Net Worth? (exclude any residential real estate)</strong></p>"+
-    '<div><span>$ </span><input id="answer" type="number"></input></div>'+
+    '<div class="num-input"><span>$ </span><input id="answer" type="number"></input></div>'+
     '<div><br><button onClick="next()">Next</button></div>',
 
     "<p><strong>Q4. How many hours per year do you spend managing your investments and other financial planning decisions? Or rather, how much time do you think you should be spending if you had the time or desire to do so?</strong></p>"+
@@ -146,7 +146,7 @@ function endState(){
     let financialPlanning = parseFloat(answerList[2])*parseFloat(answerList[9]);;
     let fee = getFee();
     question.innerHTML = 
-            "<h3>Value of Our Advice</h3>"+
+            "<h3>Value of Our Advice</h3><br>"+
             "<p>Portfolio Management (sum of questions 5-9) $" + dollarPipe(portfolioManagement) + "</p>"+
             "<p>Time Saved (answer to question 4) $" + dollarPipe(timeSaved) + "</p>"+
             "<p>Financial Planning (answer to question 10) $" + dollarPipe(financialPlanning) + "</p>"+
