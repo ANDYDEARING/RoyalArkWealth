@@ -11,7 +11,7 @@ var FINAL_QUESTION = 8;
 var questionIndex = 0;
 var questionList = [
 
-    '<h3 class="intro-header">How We Estimate the Benefits of Our Advice</h3>'+
+    '<h3 class="intro-header">How We Estimate the Benefits of Our Advice</h3><br>'+
     '<p>The decision to hire an advisor ultimately comes down to cost versus the value received. That equation will be different for each person, and may seem expensive, especially if you have not worked with an advisor before.</p>'+
     '<p>We strive to be transparent in all aspects of our work and our calculator is an effort to try to quantify what is largely intangible – your peace of mind.</p>'+
     '<p>We believe we offer value in four keys areas of investment management.</p>'+
