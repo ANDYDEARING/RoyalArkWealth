@@ -1,3 +1,7 @@
+pre{
+    display: none;
+}
+
 #quiz-area{
     margin-left:5%;
     margin-right: 5%;
