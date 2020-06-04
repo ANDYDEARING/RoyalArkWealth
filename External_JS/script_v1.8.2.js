@@ -211,5 +211,5 @@ function displayMessage(str){
 }
 
 function endQuiz(){
-
+    window.close();
 }
