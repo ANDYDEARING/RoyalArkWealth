@@ -2,6 +2,10 @@ pre{
     display: none;
 }
 
+.quiz-disclaimer{
+    font-size: 0.6em;
+}
+
 #quiz-area{
     margin-left:5%;
     margin-right: 5%;
