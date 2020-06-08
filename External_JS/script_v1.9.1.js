@@ -167,7 +167,12 @@ function endState(){
             "<p>Annual Value of Service: $" + dollarPipe(portfolioManagement+financialPlanning) + "</p>"+
             "<p>Projected ARWM Fee: $" + dollarPipe(fee) + "</p>"+
             "<p><u><strong>Net Benefit Per Year: $" + dollarPipe(portfolioManagement+financialPlanning-fee) +"</u></strong></p>"+
-            '<div><br><br><button onClick="decrementQuestion()">Back</button><button onClick="endQuiz()">End Quiz</button></div>';
+            '<div><br><br><button onClick="decrementQuestion()">Back</button></div>'+
+            '<br><br><div class="quiz-disclaimer disclaimer">'+
+            '<p>Additional Disclosures:</p>'+
+            '<p>This Value of Advice Calculator (the “VAC”) is designed and offered by Ark Royal Wealth Management LLC (“ARWM”) solely for general informational purposes in an effort to help illustrate the potential benefits and drawbacks of retaining ARWM as an investment adviser and financial planner. Neither the VAC, nor the results derived therefrom, should be construed to represent all of the quantitative or qualitative benefits or drawbacks of working with ARWM or any other investment professional. Each question and corresponding response must inherently make certain assumptions,</p>'+
+            '<p>ARWM does not warrant the accuracy, completeness or usefulness of the VAC. Any reliance you place on such information is strictly at your own risk. ARWM disclaims all liability and responsibility arising from any reliance placed on such materials by you or any other user of the VAC, or by anyone who may be informed of any of its contents.</p>'+
+            '<p>The VAC includes content provided by third parties, including materials provided by other professionals, third-party licensors, and/or reporting services. All statements and/or opinions expressed in these materials, and all articles and responses to questions and other content, other than the content provided by ARWM, are solely the opinions and the responsibility of the person or entity providing those materials. These materials do not necessarily reflect the opinion of ARWM. ARWM is not responsible, or liable to you or any third party, for the content or accuracy of any materials provided by any third parties.</p></div>';
 }
 
 function getPortfolioManagement(){
@@ -216,5 +221,5 @@ function displayMessage(str){
 }
 
 function endQuiz(){
-    window.close();
+    
 }
